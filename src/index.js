@@ -1,17 +1,38 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createStore, applyMiddleware} from 'redux';
+import {Provider} from 'react-redux';
+import createSagaMiddleware from 'redux-saga';
+import logger from 'redux-logger';
+import rootReducer from './redux/reducers/_root.reducer';
+import rootSaga from './redux/sagas/_root.saga';
+import App from './components/App/App';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+const sagaMiddleware= createSagaMiddleware();
+/* this creates an array of middleware to use. 
+this will prevent a ton of console logs in production code
+the redux logger will only be added to project if in development mode
+*/
+const middlewareList = process.env.NODE_ENV ==='development' ?
+  [sagaMiddleware, logger] :
+  [sagaMidlleware];
+
+const store = createStore(
+  //tells saga middleware to use rootReducer
+  rootReducer,
+  // adds middleware to project including saga and redux logger
+  applyMiddleware(...middlewareList),
+)
+//tells saga middleware to use rootSaga
+sagaMiddleware.run(rootSaga)
+
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Provider>
     <App />
-  </React.StrictMode>,
+  </Provider>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
