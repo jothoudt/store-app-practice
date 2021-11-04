@@ -16,7 +16,7 @@ the redux logger will only be added to project if in development mode
 */
 const middlewareList = process.env.NODE_ENV ==='development' ?
   [sagaMiddleware, logger] :
-  [sagaMidlleware];
+  [sagaMiddleware];
 
 const store = createStore(
   //tells saga middleware to use rootReducer
@@ -29,7 +29,7 @@ sagaMiddleware.run(rootSaga)
 
 
 ReactDOM.render(
-  <Provider>
+  <Provider store={store}>
     <App />
   </Provider>,
   document.getElementById('root')

@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser= require('body-parser');
 const app=express();
 const pool=require('./modules/pool');
-const sessionMiddleware=require('.modules/pool');
+const sessionMiddleware=require('./modules/session-middleware');
 const passport=require('./strategies/user.strategy');
 //------ROUTES INCLUDES----
 const userRouter = require('./routes/user.router');
