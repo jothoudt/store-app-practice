@@ -21,7 +21,7 @@ function* getProductDetails(action){
     try{
         console.log('in GET product details', action.payload);
         const response=yield axios.get('/api/products/' + action.payload )
-        yield put({type:'SET_PRODUCT_DETAILS', payload: action.payload});
+        yield put({type:'SET_PRODUCT_DETAILS', payload: response.data});
     }   //end try
     catch(error){
         console.log('get product details error', error)
