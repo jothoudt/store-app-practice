@@ -13,26 +13,22 @@ function DisplayProductsEach({product, id}){
     //link for product details
     let productDetails = '/product_details/' + product.id
     return(
-        // <div key={id}>
-            <Grid container item xs={12} spacing={1} >
+            <Grid container item xs={12} spacing={1} key={id}>
                 <Box border={2} borderColor="#ff4500" boxShadow={12} style={{height: '360px', width:'280px', margin: '12px'}}>
-                    {/* <Card style={{height:'100%', padding:'10px'}}> */}
-                        <div className="product-title">
-                          <h3>{product.product_name}</h3>
-                        </div>
-                        <CardMedia image={product.photo} style={{width:'150px', height:'150px', margin:'auto'}} />
+                    <div className="product-title">
+                        <h3>{product.product_name}</h3>
+                    </div>
+                    <CardMedia image={product.photo} style={{width:'150px', height:'150px', margin:'auto'}} />
                         <div className="product-price">
-                          <h4>${product.price}</h4>
+                            <h4>${product.price}</h4>
                         </div>
-                        <CardActions>
-                            <Link to={productDetails} params={product.id} style={{marginRight:"auto", marginLeft:"auto"}}>
-                              <Button style={{backgroundColor: '#48BF84'}}>View Details</Button>
-                            </Link>
-                        </CardActions>
-                    {/* </Card> */}
+                    <CardActions>
+                        <Link to={productDetails} params={product.id} style={{marginRight:"auto", marginLeft:"auto"}}>
+                            <Button style={{backgroundColor: '#48BF84'}}>View Details</Button>
+                        </Link>
+                    </CardActions>
                 </Box>
             </Grid>
-        // </div>
     )
 };  //end DisplayProductsEach
 
