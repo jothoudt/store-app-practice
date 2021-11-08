@@ -4,6 +4,7 @@ import {HashRouter as Router, Route, Switch} from 'react-router-dom';
 import Header from '../Header/Header';
 import Home from '../Home/Home';
 import LoginPage from '../LoginPage/LoginPage';
+import ProductDetails from '../ProductDetails/ProductDetails';
 import RegistrationPage from '../RegistrationPage/RegistrationPage';
 //css
 import './App.css';
@@ -25,6 +26,9 @@ function App() {
             </Route>
             <Route exact path='/registration'>
               <RegistrationPage />
+            </Route>
+            <Route exact path='/product_details/:id'>
+              <ProductDetails />
             </Route>
           </Switch>
         </div>

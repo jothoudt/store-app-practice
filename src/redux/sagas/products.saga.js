@@ -20,7 +20,7 @@ function* getProducts(){
 function* getProductDetails(action){
     try{
         console.log('in GET product details', action.payload);
-        const response=yield axios.get('/api/products/' + action.payload )
+        const response=yield axios.get('/api/products/' + action.payload.id )
         yield put({type:'SET_PRODUCT_DETAILS', payload: response.data});
     }   //end try
     catch(error){
