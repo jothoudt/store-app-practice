@@ -1,0 +1,9 @@
+/* adds border to product photo*/
+.product-image{
+    border: 3px solid #ff4500;
+}
+
+.product-description-container{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
