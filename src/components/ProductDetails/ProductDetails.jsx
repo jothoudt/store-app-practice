@@ -20,7 +20,7 @@ function ProductDetails(){
     const user= useSelector((store)=>{return store.user})
     const addCartItem=()=>{
         //this will make sure the user has selected a quantity
-        if(productQuantity ===0){
+        if(productQuantity === ''){
           return alert('Please select qty')
         }//end if
         /*this will check if the user is logged in. If the user is not logged in. They
@@ -31,16 +31,17 @@ function ProductDetails(){
         }//end if
         //object to be sent in dispatch
         let newOrderItem={
-          product_id: productDetails[0].id,
-          product_name: productDetails[0].product_name,
-          qty: productQuantity,
-          price: productDetails[0].product_price,
-          photo: productDetails[0].photo,
-          user_id: user.id,
+            user_id: user.id,
+            product_id: productDetails[0].id,
+            product_name: productDetails[0].product_name,
+            qty: productQuantity,
+            price: productDetails[0].product_price,
+            line_total: productDetails[0].product_price * productQuantity,
+            photo: productDetails[0].photo,
         } //end newOrderItem object
-          console.log('add to cart', newOrderItem)
-          dispatch({type:'ADD_TO_ORDER',payload: newOrderItem})
-          alert('Item Added to Cart')
+            console.log('add to cart', newOrderItem)
+            dispatch({type:'ADD_TO_ORDER',payload: newOrderItem})
+            alert('Item Added to Cart')
       } //end addCartItem
     //this function changes the quantity of the item wanted
     const handleChange=(event)=>{
