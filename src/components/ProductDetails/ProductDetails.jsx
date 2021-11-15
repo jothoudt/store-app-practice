@@ -40,7 +40,7 @@ function ProductDetails(){
             photo: productDetails[0].photo,
         } //end newOrderItem object
             console.log('add to cart', newOrderItem)
-            dispatch({type:'ADD_TO_ORDER',payload: newOrderItem})
+            dispatch({type:'ADD_TO_CART',payload: newOrderItem})
             alert('Item Added to Cart')
       } //end addCartItem
     //this function changes the quantity of the item wanted
