@@ -3,11 +3,11 @@ const pool=require('../modules/pool')
 const cartRouter= express.Router();
 
 //GET--GET ROUTE FOR ALL PRODUCTS IN USER'S SHOPPING CART
-cartRouter.get('/', (req,res)=>{
+cartRouter.get('/:id', (req,res)=>{
     //SQL DATABASE QUERY
     const getProductsQuery=`SELECT * FROM shopping_cart WHERE user_id=$1;`
     //execute database query
-    pool.query(getProductsQuery,[req.params]).then(result=>res.send(result.rows)).catch((err)=>{console.log(err), res.sendStatus(500)});
+    pool.query(getProductsQuery,[req.params.id]).then(result=>res.send(result.rows)).catch((err)=>{console.log(err), res.sendStatus(500)});
 });  //end GET ROUTE for all products in user's shopping cart
 
 //POST---ADD AN ITEM TO USER'S SHOPPING CART

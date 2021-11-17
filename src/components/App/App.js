@@ -6,6 +6,7 @@ import Home from '../Home/Home';
 import LoginPage from '../LoginPage/LoginPage';
 import ProductDetails from '../ProductDetails/ProductDetails';
 import RegistrationPage from '../RegistrationPage/RegistrationPage';
+import ShoppingCart from '../ShoppingCart/ShoppingCart';
 //css
 import './App.css';
 
@@ -29,6 +30,9 @@ function App() {
             </Route>
             <Route exact path='/product_details/:id'>
               <ProductDetails />
+            </Route>
+            <Route exact path='/shopping_cart'>
+              <ShoppingCart />
             </Route>
           </Switch>
         </div>
