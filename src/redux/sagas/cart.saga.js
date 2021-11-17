@@ -18,7 +18,7 @@ function* addToCart(action){
 function* fetchCartList(action){
     try{
         const response=yield axios.get('/api/cart/' + action.payload)
-        yield put({type:'SET_SHOPPING_CART_LIST'})
+        yield put({type:'SET_SHOPPING_CART_LIST', payload:response.data})
     }   //end try
     catch(error){
         console.log('error in fetching cart items', error)

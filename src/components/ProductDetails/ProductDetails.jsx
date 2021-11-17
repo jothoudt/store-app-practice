@@ -35,8 +35,8 @@ function ProductDetails(){
             product_id: productDetails[0].id,
             product_name: productDetails[0].product_name,
             qty: productQuantity,
-            price: productDetails[0].product_price,
-            line_total: productDetails[0].product_price * productQuantity,
+            price: productDetails[0].price,
+            line_total: productDetails[0].price * productQuantity,
             photo: productDetails[0].photo,
         } //end newOrderItem object
             console.log('add to cart', newOrderItem)

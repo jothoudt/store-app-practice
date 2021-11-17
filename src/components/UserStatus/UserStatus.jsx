@@ -1,8 +1,10 @@
 import React from 'react';
+import{Link} from 'react-router-dom';
 import {useSelector} from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useHistory} from 'react-router-dom';
 import Button from '@material-ui/core/Button';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import './UserStatus.css'
 //this component conditionally renders a login/register button if the user Is Not signed in and displays user name and a Log out button if the user IS signed in.
 //this component will go into the Header component
@@ -27,6 +29,9 @@ function UserStatus (){
             <div className="message-container">
               <div className="hello-message">
                 <h5>Hello, {user.username}</h5>
+                <Link to="/shopping_cart">
+                  <ShoppingCartOutlinedIcon style={{ fontSize:'36px', marginTop:'25px', color: "#48BF84"}} />
+                </Link>
               </div>
               <div className="logout-button">
                 <LogOutButton />
@@ -37,7 +42,22 @@ function UserStatus (){
         else{
             display=
             <div className="button-container">
-              <div className="login-button"><Button onClick={goLogin} style={{backgroundColor: "#48BF84", height: '36px',width:'88px', marginTop:'auto', marginBottom: 'auto', marginRight:"6px", color:"#14110F"}}>Login</Button></div><div className="register-button"><Button onClick={goRegister} style={{backgroundColor: "#48BF84", height:'36px', width: '88px', marginTop:'auto', marginBottom: 'auto', marginLeft:"6px", color: "#14110F"}}>Register</Button></div>
+              <div className="login-button">
+                <Button 
+                  onClick={goLogin} 
+                  style={{backgroundColor: "#48BF84", height: '36px',width:'88px', marginTop:'auto', marginBottom: 'auto', marginRight:"6px", color:"#14110F"}}
+                  >
+                    Login
+                </Button>
+              </div>
+              <div className="register-button">
+                <Button 
+                  onClick={goRegister} 
+                  style={{backgroundColor: "#48BF84", height:'36px', width: '88px', marginTop:'auto', marginBottom: 'auto', marginLeft:"6px", color: "#14110F"}}
+                  >
+                    Register
+                </Button>
+              </div>
             </div>
         } //end else
         return display
